@@ -7,7 +7,9 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "http://localhost:5173"
+    # Match any localhost dev port — Vite falls back to 5174, 5175, etc.
+    # when 5173 is already taken by another project's dev server.
+    origins(/\Ahttp:\/\/localhost:\d+\z/)
 
     resource "/api/*",
       headers: :any,

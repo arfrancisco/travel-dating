@@ -6,15 +6,37 @@
 }
 
 .explore__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.explore__header select {
-  font-size: 1rem;
-  padding: 0.4rem 0.6rem;
+.explore__controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+  flex-wrap: wrap;
+}
+
+.explore__radius {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.explore__controls button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #ff4d6d;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.explore__controls button:disabled {
+  opacity: 0.6;
+  cursor: default;
 }
 
 .explore__error {

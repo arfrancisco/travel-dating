@@ -20,12 +20,16 @@ export interface ExplorationSession {
   id: number;
   user_id: number;
   location_id: number;
+  latitude: number;
+  longitude: number;
+  radius_km: number;
   started_at: string;
   ended_at: string | null;
 }
 
 export interface SessionStats {
   location: string;
+  radius_km: number;
   eligible_remaining: number;
   viewed: number;
   liked: number;
@@ -51,10 +55,16 @@ export function fetchLocations(): Promise<CityLocation[]> {
   return request<CityLocation[]>("/locations");
 }
 
-export function createExplorationSession(locationId: number): Promise<ExplorationSession> {
+export function createExplorationSession(
+  latitude: number,
+  longitude: number,
+  radiusKm: number
+): Promise<ExplorationSession> {
   return request<ExplorationSession>("/exploration_sessions", {
     method: "POST",
-    body: JSON.stringify({ location_id: locationId }),
+    body: JSON.stringify({
+      exploration_session: { latitude, longitude, radius_km: radiusKm },
+    }),
   });
 }
 

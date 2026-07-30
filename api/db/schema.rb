@@ -10,11 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_30_041222) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_30_051732) do
   create_table "exploration_sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "ended_at"
+    t.float "latitude"
     t.integer "location_id", null: false
+    t.float "longitude"
+    t.float "radius_km", default: 25.0
     t.datetime "started_at"
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
