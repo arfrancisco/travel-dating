@@ -1,0 +1,11 @@
+.discovery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.discovery-grid__empty {
+  color: #666;
+  text-align: center;
+  padding: 2rem;
+}

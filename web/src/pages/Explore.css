@@ -1,0 +1,22 @@
+.explore {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  text-align: left;
+}
+
+.explore__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.explore__header select {
+  font-size: 1rem;
+  padding: 0.4rem 0.6rem;
+}
+
+.explore__error {
+  color: #b00020;
+}
