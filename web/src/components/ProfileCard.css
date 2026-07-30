@@ -9,9 +9,37 @@
   min-height: 220px;
 }
 
+.profile-card__photo-trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.profile-card__photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f5f5f5;
+}
+
 .profile-card__meta {
   color: #666;
   margin: 0.25rem 0;
+}
+
+.profile-card__details-link {
+  border: none;
+  background: none;
+  color: #ff4d6d;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0;
+  cursor: pointer;
+  margin-top: 0.5rem;
 }
 
 .profile-card__bio {

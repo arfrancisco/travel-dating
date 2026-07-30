@@ -12,6 +12,7 @@ import {
 } from "../api/client";
 import { DiscoveryGrid } from "../components/DiscoveryGrid";
 import { LocationPicker, type LatLng } from "../components/LocationPicker";
+import { ProfileDetailModal } from "../components/ProfileDetailModal";
 import { StatsPanel } from "../components/StatsPanel";
 import "./Explore.css";
 
@@ -28,6 +29,7 @@ export function Explore() {
   const [stats, setStats] = useState<SessionStats | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [detailsProfile, setDetailsProfile] = useState<Profile | null>(null);
 
   const startExploring = useCallback(async (position: LatLng, radius: number) => {
     setLoading(true);
@@ -67,6 +69,7 @@ export function Explore() {
       if (!session) return;
 
       setProfiles((current) => current.filter((p) => p.id !== profile.id));
+      setDetailsProfile((current) => (current?.id === profile.id ? null : current));
 
       try {
         await recordDecision(session.id, profile.id, decision);
@@ -113,7 +116,16 @@ export function Explore() {
       {loading ? (
         <p>Loading profiles...</p>
       ) : (
-        <DiscoveryGrid profiles={profiles} onDecide={handleDecide} />
+        <DiscoveryGrid profiles={profiles} onDecide={handleDecide} onViewDetails={setDetailsProfile} />
+      )}
+
+      {detailsProfile && (
+        <ProfileDetailModal
+          profile={detailsProfile}
+          onClose={() => setDetailsProfile(null)}
+          onLike={() => handleDecide(detailsProfile, "like")}
+          onPass={() => handleDecide(detailsProfile, "pass")}
+        />
       )}
     </div>
   );

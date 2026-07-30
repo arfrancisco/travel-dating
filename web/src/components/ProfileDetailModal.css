@@ -1,0 +1,121 @@
+.profile-detail-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.profile-detail-modal {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  max-width: 420px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.profile-detail-modal__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.profile-detail-modal__gallery {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: #f5f5f5;
+}
+
+.profile-detail-modal__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-detail-modal__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.profile-detail-modal__nav--prev {
+  left: 0.5rem;
+}
+
+.profile-detail-modal__nav--next {
+  right: 0.5rem;
+}
+
+.profile-detail-modal__dots {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.profile-detail-modal__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.profile-detail-modal__dot--active {
+  background: #fff;
+}
+
+.profile-detail-modal__body {
+  padding: 1rem 1.25rem;
+}
+
+.profile-detail-modal__meta {
+  color: #666;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.profile-detail-modal__bio {
+  color: #333;
+  line-height: 1.4;
+}
+
+.profile-detail-modal__actions {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 1.25rem 1.25rem;
+}
+
+.profile-detail-modal__actions button {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
